@@ -36,6 +36,14 @@ html_static_path = ['_static']
 html_title = ""
 html_theme_options = {
     "home_page_in_toc": True,
+    "github_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
+    "repository_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
+    "repository_branch": "docs",
+    "path_to_docs": "docs",
+    "use_repository_button": True,
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    #"announcment": "<b>v2.0.0</b> is now out! See the Changelog for details",
 }
 # -- MyST settings ---------------------------------------------------
 
