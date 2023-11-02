@@ -39,7 +39,7 @@ html_theme_options = {
     "github_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
     "repository_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
     "repository_branch": "docs",
-    "path_to_docs": "docs",
+    "path_to_docs": "docs/source",
     "use_repository_button": True,
     "use_edit_page_button": True,
     "use_issues_button": True,
