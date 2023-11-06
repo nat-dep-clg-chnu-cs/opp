@@ -12,7 +12,7 @@ sd_hide_title: true
 :::{grid-item}
 :columns: 12 4 4 4
 
-```{image} _static/logo-square.svg
+```{image} _static/KN.jpg
 :width: 200px
 :class: sd-m-auto
 :name: landing-page-logo
@@ -126,6 +126,10 @@ to modify parsing behaviour and access extended syntax features.
 The MyST markdown language and MyST parser are both supported by the open community,
 [The Executable Book Project](https://executablebooks.org).
 
+```{rubric} ПЕРЕДМОВА
+
+```
+
 ```{toctree}
 :hidden:
 intro.md
@@ -166,6 +170,14 @@ develop/index.md
 syntax/reference
 develop/background.md
 apidocs/index.rst
+```
+
+```{toctree}
+:hidden:
+:caption: ОПП
+
+opp/preamble.md
+opp/profile.md
 ```
 
 [commonmark]: https://commonmark.org/

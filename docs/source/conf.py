@@ -31,7 +31,7 @@ language = 'uk_UA'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_book_theme'
-html_title = ""
+html_logo = "_static/KN.jpg"
 html_static_path = ['_static']
 html_title = ""
 html_theme_options = {
