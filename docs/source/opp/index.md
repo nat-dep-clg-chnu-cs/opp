@@ -9,7 +9,7 @@
 # ОПП
 
 ```{toctree}
-:caption: Передмова
+:caption: Зміст
 
 preamble
 profile
