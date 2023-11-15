@@ -1,0 +1,152 @@
+\tikzstyle{year}=[rectangle, minimum width=8cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{semestr} = [rectangle, minimum width=4cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{dur1} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{dur2} = [rectangle, rounded corners, minimum width=7cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{dur3} = [rectangle, rounded corners, minimum width=11cm, minimum height=1cm,text centered, draw=black]%
+
+[node distance=5mm,every node/.style=draw]
+ \draw[help lines] (0,0) grid (20,-8);
+
+\node (year1) at (0,0)[year] {Перший рік навчання}; 
+\node (year2) at (8,0)[year]  {Другий рiк навчання};
+\node (year3) at (16,0)[year]  {Третій рiк навчання};
+  
+\node (sem3) at (-2,-1) [semestr] {1 семестр};
+\node (sem4) at (2,-1) [semestr] {2 семестр};
+\node (sem5) at (6,-1) [semestr] {3 семестр};
+\node (sem6) at (10,-1) [semestr] {4 семестр};
+\node (sem7) at (14,-1) [semestr] {5 семестр};
+\node (sem8) at (18,-1) [semestr] {6 семестр};
+
+\node (OK24) at (-2,-2.5) [dur1] {ПК.04};
+\node (OK13) at (0,-4) [dur2] {ЗК.03};
+\node (OK21) at (0,-5.5) [dur2] {ПК.01};
+\node (OK12) at (6,-2.5) [dur3] {ЗК.02};
+\node (OK23) at (0,-7) [dur2] {ПК.03};
+\node (OK14) at (0,-8.5) [dur2] {ЗК.04};
+\node (OK25) at (0,-10) [dur2] {ПК.05};
+\node (OK16) at (-2,-11.5) [dur1] {ЗК.06};
+\node (OK11) at (2,-11.5) [dur1] {ЗК.01};
+\node (OK22) at (-2,-13) [dur1] {ПК.02};
+\node (BK32) at (2,-13) [dur1] {ВК 3.2};
+\node (OK15) at (2,-14.5) [dur1] {ЗК.05};
+\node (BK31) at (-2,-14.5) [dur1] {ВК 3.1};
+\node (OK26) at (2,-16) [dur1] {ПП.01};
+\node (OK17) at (2,-17.5) [dur3] {ЗК.07};
+\node (BK33) at (6,-4) [dur1] {ВК 3.3};
+\node (OK18) at (10,-4)[dur1] {ЗК.08};
+\node (OK212) at (8,-5.5) [dur2] {ПК.09};
+\node (OK29) at (8,-7) [dur2] {ПК.07};
+\node (OK211) at (6,-8.5) [dur1] {ПК.08};
+\node (BK26) at (10,-8.5) [dur1] {ПК.22};
+\node (BK24) at (6,-10) [dur1] {ПК.20};
+\node (OK28) at (10,-10) [dur1] {ПК.06};
+\node (OK214) at (6,-11.5) [dur1] {ПК.10};
+\node (OK210) at (10,-11.5) [dur1] {ПК.23};
+\node (OK213) at (6,-13) [dur1] {ПП.02};
+\node (BK34) at (10,-13) [dur1] {ВК 3.4};
+\node (OK27) at (10,-14.5) [dur1] {ПП.03};
+\node (BK11) at (14,-2.5) [dur1] {ЗК.09};
+\node (BK22) at (18,-2.5) [dur1] {ПК.18};
+\node (BK23) at (14,-4) [dur1] {ПК.19};
+\node (OK221) at (18,-4) [dur1] {ПК.15};
+\node (BK25) at (16,-5.5) [dur2] {ПК.21};
+\node (BK21) at (14,-7) [dur1] {ПК.17};
+\node (OK216) at (18,-7) [dur1] {ПК.11};
+\node (OK220) at (16,-8.5) [dur2] {ПК.14};
+\node (OK222) at (14,-10) [dur1] {ПК.16};
+\node (OK219) at (18,-10) [dur1] {ПК.13};
+\node (OK217) at (14,-11.5) [dur1] {ПК.12};
+\node (BK36) at (18,-11.5) [dur1] {ВК 3.6};
+\node (BK35) at (14,-13) [dur1] {ВК 3.5};
+\node (OK218) at (18,-13) [dur1] {ПП.04};
+\node (OK215) at (18,-14.5) [dur1] {ПК.24};
+
+  { [start chain=1]
+    \node [on chain] {A};
+    \node [on chain] {B};
+    \node [on chain] {C};
+  }
+
+  { [start chain=2 going below]
+    \node [on chain=2] at (0.5,-.5) {0};
+    \node [on chain=2] {1};
+    \node [on chain=2] {2};
+  }
+
+  { [continue chain=1]
+    \node [on chain] {D};
+  }
+
+\begin{scope}[start chain, every node/.style={draw, on chain, join}, every join/.style=->]
+  \node (a)  {a};
+  \node (b)  {b};
+  \node  (c)  {c};
+  \node  (d)  {d};
+  \begin{scope} [start branch=numbers, every join/.style=<-]
+    \node (1) [on chain=going above] {1};
+    \node (2) [on chain=going above] {2};
+  \end{scope}
+  \node  (e)  {e};
+ \end{scope}
+  \node (fit2) [draw, inner sep=2pt, fit=(a) (b) ] {};
+  \node (fit1) [draw, inner sep=2pt, fit=(d) (1) (e)] {};
+
+
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (-0.5, -6)--(-0.5, -6.5);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (0.5, -6.5)--(0.5, -6);
+\draw[line width=0.5mm,{Stealth[bend,round,length=11pt]}-{Stealth[bend,round,length=11pt]}] (OK21.west)-- ++(-0.5,0) -- ++(0,-7.5) -- (OK22.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK21.5)-- (OK212.175);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK21.185)--++(-0.2,-0.5)--++(0,-9.7)-- (OK26.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK22.east)-- ++(0.3,0.3)-- ++(0,2)--++(4,0)--++(0,5)-- (OK212.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.west)--++(0,-0.2)--++(-0.2,-0.5)--++(0,-6.5) -- (OK213.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK22.345)-- ++(0,-0.2)--++(16.2,0)--(OK220.240);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK22.15)--++(0,0.3)--++(12.8,0)--++(0,4.6)-- (BK21.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK16.west)--++(-0.3,0)--++(0,9.7)--++(16,0)-- (BK11.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK11.east)--++(0.2,0)--++(0,8.3)--++(13,0)-- (BK22.235);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK23.east)--++(0.5,-0.5)--++(0,-3.21)--++(9,0)-- (OK217.125);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.south)--++(0,-0.2)--++(10,0)-- (OK216.north);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.5)--++(0.6,0)--++(0,-3)--  (BK26.east);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.east)--++(0.2,0)--++(0,-7.8)-- (OK27.20);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.355)--++(0.4,0)--++(0,-5.5)--  (OK210.east);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK29.east)--++(0.8,0.5)--++(0,1.7)--++(3.9,0)-- (OK221.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK25.8)--++(0.6,0.5)--++(0,1.3)--++(9,0)-- (BK21.215);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK214.345)--++(0.3,-0.2)--++(0,-1.7)--(OK27.175);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK214.15)--++(0.3,0.2)--++(0,3)--++(6,0)--(BK21.south);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK26.195)--++(-0.3,-0.2)--++(0,-4)--(OK27.165);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK26.330)--(OK222.180);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK26.16)--(BK25.189);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK26.350)--++(0.5,-0.4)--++(6,0)--(OK219.90);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK26.340)--++(0.5,-0.4)--++(4.4,0)--++(0,-3)--(OK218.165);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK214.west)--++(-0.6,0)--++(0,8.15)--++(10,0)--(BK23.north);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK23.15)--++(0.2,0.2)--++(4,0)--++(0,-9)--(OK218.15);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK220.280)--++(0,-3.8)--(OK218.175);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK212.east)--(BK25.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK222.east)--(OK219.west);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (BK25.east)--++(0.4,0)--++(0,-7)--(OK218.east);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK219.east)--++(0.1,0)--++(0,-2)--(OK218.20);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK217.345)--(OK218.190);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK218.south)--(OK215.north);
+\draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK222.345)--(OK218.160);
+
+
+{[every on chain/.style=join,every join/.style=->,
+                    node distance=2mm and 1cm]
+  { [start chain=trunk]
+    \node [on chain] {A};
+    \node [on chain] {B};
+    { [start branch=numbers going below] } % just a declaration,
+    { [start branch=greek   going above] } % we will come back later
+    \node [on chain] {C};
+
+    % Now come the branches...
+    { [continue branch=numbers]
+      \node [on chain] {1};
+      \node [on chain] {2};
+    }
+    { [continue branch=greek]
+      \node [on chain] {$\alpha$};
+      \node [on chain] {$\beta$};
+    }
+  }
+}

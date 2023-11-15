@@ -1,6 +1,12 @@
----
-sd_hide_title: true
----
+:lang: uk
+
+```{eval-rst}
+
+.. raw:: latex
+
+    \pagebreak
+
+```
 
 # Перелік компонент освітньо-професійної програми та їх логічна послідовність
 
@@ -242,17 +248,40 @@ sd_hide_title: true
 My CSV table
 
 ```{eval-rst}
+.. tikz:: [>=latex',dotted,thick] \draw[->] (0,0) -- (1,1) -- (1,0)
+   -- (2,0);
+   :libs: arrows
+```
+
+```{tikz}
+:libs: arrows
+
+[>=latex',dotted,thick] \draw[->] (0,0) -- (1,1) -- (1,0) -- (2,0);
+
+```
+
+```{tikz}
+:libs: arrows, shapes.geometric, arrows.meta, bending, automata
+:include: example.tikz
+
+```
+
+%`{tikz}
+%:libs: chains,scopes,shapes.geometric
+%:include: example1.tikz
+%`
+
+```{eval-rst}
 
 .. raw:: latex
 
     \pagestyle{empty}%
     \begin{landscape}
 
-.. csv-table::
-    :header: "Col 1", "Col 2", "Col 3"
-    :widths: 10 10 10
-
-    "Value 1", "Value 2", "Value 3"
+.. tikz::
+    :libs: chains,scopes,shapes.geometric,fit,arrows,arrows.meta,bending,automata
+    :xscale: 82
+    :include: example1.tikz
 
 .. raw:: latex
 
@@ -260,22 +289,40 @@ My CSV table
     \pagestyle{plain}%
 ```
 
-:::{mermaid}
+%`{mermaid} test.mmd
+%
+%`
 
-sequenceDiagram
-participant Alice
-participant Bob
-Alice->John: Hello John, how are you?
-loop Healthcheck
-John->John: Fight against hypochondria
-end
-Note right of John: Rational thoughts <br/>prevail...
-John-->Alice: Great!
-John->Bob: How about you?
-Bob-->John: Jolly good!
+%`{eval-rst}
+%.. plot::
+%   :format: python
+%   :align: center
+%   :scale: 100
+%
+%   import matplotlib.pyplot as plt
+%
+%   from mpl_toolkits.mplot3d import axes3d
+%
+%   ax = plt.figure().add_subplot(projection='3d')
+%   X, Y, Z = axes3d.get_test_data(0.05)
+%
+%   # Plot the 3D surface
+%   ax.plot_surface(X, Y, Z, edgecolor='royalblue', lw=0.5, rstride=8, cstride=8,
+%                alpha=0.3)
+%
+%   # Plot projections of the contours for each dimension.  By choosing offsets
+%   # that match the appropriate axes limits, the projected contours will sit on
+%   # the 'walls' of the graph
+%   ax.contourf(X, Y, Z, zdir='z', offset=-100, cmap='coolwarm')
+%   ax.contourf(X, Y, Z, zdir='x', offset=-40, cmap='coolwarm')
+%   ax.contourf(X, Y, Z, zdir='y', offset=40, cmap='coolwarm')
+%
+%   ax.set(xlim=(-40, 40), ylim=(-40, 40), zlim=(-100, 100),
+%       xlabel='X', ylabel='Y', zlabel='Z')
+%
+%   plt.show()
+%
+%`
 
-:::
-
-```{mermaid} test.mmd
-
-```
+An example role {tikz}`[thick] \node[blue,draw] (a) {Aa};
+\node[draw,dotted,right of=a] {Bиии} edge[<-] (a);`

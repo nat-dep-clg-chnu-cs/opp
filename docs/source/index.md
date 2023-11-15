@@ -1,14 +1,11 @@
 ---
-sd_hide_title: true
+html_theme.sidebar_secondary.remove: true
 ---
 
 # 🔎 Overview
 
 ```{toctree}
-:hidden:
-:caption: ОПП
+:maxdepth: 2
 
-opp/preamble.md
-opp/profile.md
-opp/components.md
+opp/index
 ```

@@ -19,12 +19,19 @@ master_doc = "index"
 extensions =["myst_parser", 
              "sphinx_design", 
              "sphinx.ext.autodoc",
-             "sphinxcontrib.mermaid"
+             "sphinxcontrib.mermaid",
+             "sphinx.ext.imgconverter",
+             'matplotlib.sphinxext.plot_directive',
+             'sphinxcontrib.tikz',
              ]
     
 mermaid_params = ['-p' 'puppeteer-config.json']
-
-
+tikz_proc_suite = 'GhostScript'
+tikz_latex_preamble = r'''\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+        \usepackage[T2A,T1]{fontenc}
+\usepackage[ukrainian]{babel}
+'''
 templates_path = ['_templates']
 exclude_patterns = []
 source_suffix = {
@@ -34,24 +41,39 @@ source_suffix = {
 }
 language = 'uk_UA'
 locale_dirs = ['_locale']
+source_encoding = 'utf-8'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_book_theme'
+html_theme = 'pydata_sphinx_theme'
 html_logo = "_static/KN.jpg"
 html_static_path = ['_static']
 html_title = ""
 html_theme_options = {
-    "home_page_in_toc": True,
-    "github_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
-    "repository_url": "https://github.com/nat-dep-clg-chnu-cs/opp",
-    "repository_branch": "docs",
-    "path_to_docs": "docs/source",
-    "use_repository_button": True,
+    "icon_links": [
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com/PyData",
+            "icon": "fa-brands fa-twitter",
+        },
+        {
+            "name": "GitHub",
+            "url": "https://github.com/pydata/pydata-sphinx-theme",
+            "icon": "fa-brands fa-github",
+        },
+    ],
     "use_edit_page_button": True,
-    "use_issues_button": True,
+    "navbar_align": "left", 
     #"announcment": "<b>v2.0.0</b> is now out! See the Changelog for details",
 }
+
+html_context = {
+    "github_user": "nat-dep-clg-chnu-cs",
+    "github_repo": "opp",
+    "github_version": "docs",
+    "doc_path": "docs/source",
+}
+
 # -- MyST settings ---------------------------------------------------
 
 myst_enable_extensions = ["deflist", "colon_fence", "attrs_block", "attrs_inline"]
@@ -61,9 +83,16 @@ latex_engine = 'pdflatex'
 latex_theme = 'howto'
 latex_elements = {
     'papersize': 'a4paper',
-    'inputenc': '\\usepackage[utf8]{inputenc}',
-           'pointsize': '12pt',
+    'inputenc': '\\usepackage[utf8]{inputenc} ',
+    'fontenc': '\\usepackage[T2A,T1]{fontenc}',
+#    'fontpkg': r'''
+#\setmainfont{DejaVu Serif}
+#\setsansfont{DejaVu Sans}
+#\setmonofont{DejaVu Sans Mono}
+#''', 
+    'pointsize': '12pt',
     'preamble': r'''
+ 
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -71,12 +100,14 @@ latex_elements = {
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 %\usepackage{setspace}
 %\usepackage{xcolor}
-\usepackage{array}
+%\usepackage{array}
 \usepackage{multirow}
 \usepackage{lscape}
 \usepackage{pdflscape}
 \usepackage{everypage}
+\usetikzlibrary{chains,scopes,shapes.geometric,fit,arrows,arrows.meta,bending,automata}
 %\usepackage[printwatermark]{xwatermark}
+
 \renewcommand{\baselinestretch}{1.0}
 
 \newcommand{\tabcomp}[1]{\rotatebox[origin=c]{90}{\parbox[c]{2cm}{\centering #1 }}}
@@ -98,10 +129,7 @@ latex_elements = {
 \egroup\fi}
 \AddEverypageHook{\Lpagenumber}%
     ''',
-    'babel': r'''
-    \usepackage[ukrainian]{babel}
-    ''',
-    
+    'babel': r'''\usepackage[ukrainian]{babel}''',
     'maketitle': r'''
         \pagenumbering{Roman} %%% to avoid page 1 conflict with actual page 1
         \begin{titlepage}
@@ -181,7 +209,7 @@ latex_elements = {
 \begin{minipage}{9.5cm}
 СХВАЛЕНО
 
-на засіданні Педагогічної ради\\ ВСП <<Фаховий коледж ЧНУ>>\\
+на засіданні Педагогічної ради\\ ВСП "Фаховий коледж ЧНУ"\\
 Протокол №\underline{\hspace{0.7cm}} від <<\underline{\hspace{0.7cm}}>> \underline{\hspace{2cm}}  20\underline{\hspace{0.7cm}}~р.\\
 
 Голова Педагогічної ради, директор \underline{\hspace{3cm}}~О.В.Собчук\\
