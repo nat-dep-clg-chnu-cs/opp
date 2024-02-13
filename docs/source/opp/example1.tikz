@@ -5,7 +5,7 @@
 \tikzstyle{dur3} = [rectangle, rounded corners, minimum width=11cm, minimum height=1cm,text centered, draw=black]%
 
 [node distance=5mm,every node/.style=draw]
- \draw[help lines] (0,0) grid (20,-8);
+% \draw[help lines] (0,0) grid (20,-8);
 
 \node (year1) at (0,0)[year] {Перший рік навчання}; 
 \node (year2) at (8,0)[year]  {Другий рiк навчання};
@@ -62,36 +62,6 @@
 \node (OK218) at (18,-13) [dur1] {ПП.04};
 \node (OK215) at (18,-14.5) [dur1] {ПК.24};
 
-  { [start chain=1]
-    \node [on chain] {A};
-    \node [on chain] {B};
-    \node [on chain] {C};
-  }
-
-  { [start chain=2 going below]
-    \node [on chain=2] at (0.5,-.5) {0};
-    \node [on chain=2] {1};
-    \node [on chain=2] {2};
-  }
-
-  { [continue chain=1]
-    \node [on chain] {D};
-  }
-
-\begin{scope}[start chain, every node/.style={draw, on chain, join}, every join/.style=->]
-  \node (a)  {a};
-  \node (b)  {b};
-  \node  (c)  {c};
-  \node  (d)  {d};
-  \begin{scope} [start branch=numbers, every join/.style=<-]
-    \node (1) [on chain=going above] {1};
-    \node (2) [on chain=going above] {2};
-  \end{scope}
-  \node  (e)  {e};
- \end{scope}
-  \node (fit2) [draw, inner sep=2pt, fit=(a) (b) ] {};
-  \node (fit1) [draw, inner sep=2pt, fit=(d) (1) (e)] {};
-
 
 \draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (-0.5, -6)--(-0.5, -6.5);
 \draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (0.5, -6.5)--(0.5, -6);
@@ -130,23 +100,3 @@
 \draw[line width=0.5mm,-{Stealth[bend,round,length=11pt]}] (OK222.345)--(OK218.160);
 
 
-{[every on chain/.style=join,every join/.style=->,
-                    node distance=2mm and 1cm]
-  { [start chain=trunk]
-    \node [on chain] {A};
-    \node [on chain] {B};
-    { [start branch=numbers going below] } % just a declaration,
-    { [start branch=greek   going above] } % we will come back later
-    \node [on chain] {C};
-
-    % Now come the branches...
-    { [continue branch=numbers]
-      \node [on chain] {1};
-      \node [on chain] {2};
-    }
-    { [continue branch=greek]
-      \node [on chain] {$\alpha$};
-      \node [on chain] {$\beta$};
-    }
-  }
-}

@@ -1,5 +1,3 @@
-:lang: uk
-
 ```{eval-rst}
 
 .. raw:: latex
@@ -243,34 +241,6 @@
 
 :::
 
-## Структурно-логічна схема освітньо-професійної програми спеціальності
-
-My CSV table
-
-```{eval-rst}
-.. tikz:: [>=latex',dotted,thick] \draw[->] (0,0) -- (1,1) -- (1,0)
-   -- (2,0);
-   :libs: arrows
-```
-
-```{tikz}
-:libs: arrows
-
-[>=latex',dotted,thick] \draw[->] (0,0) -- (1,1) -- (1,0) -- (2,0);
-
-```
-
-```{tikz}
-:libs: arrows, shapes.geometric, arrows.meta, bending, automata
-:include: example.tikz
-
-```
-
-%`{tikz}
-%:libs: chains,scopes,shapes.geometric
-%:include: example1.tikz
-%`
-
 ```{eval-rst}
 
 .. raw:: latex
@@ -278,51 +248,18 @@ My CSV table
     \pagestyle{empty}%
     \begin{landscape}
 
+```
+
+## Структурно-логічна схема освітньо-професійної програми спеціальності
+
+```{eval-rst}
+
 .. tikz::
-    :libs: chains,scopes,shapes.geometric,fit,arrows,arrows.meta,bending,automata
-    :xscale: 82
-    :include: example1.tikz
+    :libs: matrix, fit, calc
+    :include: tikz/struct.tikz
 
 .. raw:: latex
 
     \end{landscape}
     \pagestyle{plain}%
 ```
-
-%`{mermaid} test.mmd
-%
-%`
-
-%`{eval-rst}
-%.. plot::
-%   :format: python
-%   :align: center
-%   :scale: 100
-%
-%   import matplotlib.pyplot as plt
-%
-%   from mpl_toolkits.mplot3d import axes3d
-%
-%   ax = plt.figure().add_subplot(projection='3d')
-%   X, Y, Z = axes3d.get_test_data(0.05)
-%
-%   # Plot the 3D surface
-%   ax.plot_surface(X, Y, Z, edgecolor='royalblue', lw=0.5, rstride=8, cstride=8,
-%                alpha=0.3)
-%
-%   # Plot projections of the contours for each dimension.  By choosing offsets
-%   # that match the appropriate axes limits, the projected contours will sit on
-%   # the 'walls' of the graph
-%   ax.contourf(X, Y, Z, zdir='z', offset=-100, cmap='coolwarm')
-%   ax.contourf(X, Y, Z, zdir='x', offset=-40, cmap='coolwarm')
-%   ax.contourf(X, Y, Z, zdir='y', offset=40, cmap='coolwarm')
-%
-%   ax.set(xlim=(-40, 40), ylim=(-40, 40), zlim=(-100, 100),
-%       xlabel='X', ylabel='Y', zlabel='Z')
-%
-%   plt.show()
-%
-%`
-
-An example role {tikz}`[thick] \node[blue,draw] (a) {Aa};
-\node[draw,dotted,right of=a] {Bиии} edge[<-] (a);`
