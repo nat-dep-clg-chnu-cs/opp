@@ -1,3 +1,3 @@
 # Table of contents
 
-* [opp](README.md)
+* [ОПП](README.md)
