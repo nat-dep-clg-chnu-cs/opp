@@ -43,7 +43,7 @@ source_suffix = {
     '.md': 'markdown',
 }
 language = 'uk_UA'
-locale_dirs = ['_locale']
+locale_dirs = ['_locale/']
 source_encoding = 'utf-8'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
